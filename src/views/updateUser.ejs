@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update User</title>
+    <link rel="stylesheet" href="/styles/updateUserStyles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Form Update User</h1>
+      <form action="/process-update-user" method="POST">
+        <div class="control">
+          <input
+            type="text"
+            placeholder="Username"
+            id="username"
+            name="name"
+            value="<%= dataUser.name %>"
+          />
+          <span></span>
+          <small></small>
+        </div>
+        <div class="control">
+          <input
+            type="email"
+            placeholder="Email"
+            id="email"
+            name="email"
+            value="<%= dataUser.email %>"
+          />
+          <span></span>
+          <small></small>
+        </div>
+        <div class="control">
+          <input
+            type="text"
+            placeholder="Address"
+            id="password"
+            name="address"
+            value="<%= dataUser.address %>"
+          />
+          <span></span>
+          <small></small>
+        </div>
+        <div class="control">
+          <input
+            type="text"
+            placeholder="Gender"
+            id="password2"
+            name="sex"
+            value="<%= dataUser.sex %>"
+          />
+          <span></span>
+          <small></small>
+        </div>
+        <input type="text" hidden name="id" value="<%= dataUser.id %>" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

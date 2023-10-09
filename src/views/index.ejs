@@ -1,0 +1,70 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="/upload">Upload New File</a>
+      <a href="/about">About</a>
+    </div>
+    <br /><br /><br />
+    <table>
+      <h2>Nhân Viên:</h2>
+      <br />
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Change</th>
+      </tr>
+      <% for(let i = 0; i<dataUser.length; i++) { %>
+      <tr>
+        <td><%= dataUser[i].id %></td>
+        <td><%= dataUser[i].name %></td>
+        <td><%= dataUser[i].date %></td>
+        <td><%= dataUser[i].address %></td>
+        <td><%= dataUser[i].email %></td>
+        <td>
+          <button><a href="/detail/user/<%= dataUser[i].id %>" target="_blank">More Info</a></button>
+          <button><a href="/delete-user/<%= dataUser[i].id %>">Delete</a></button>
+          <button><a href="/update-user/<%= dataUser[i].id %>">Update</a></button>
+        </td>
+      </tr>
+      <%}%>
+    </table>
+    <br><br><br>
+    <div class="main-block">
+      <h1>Thêm Nhân Viên:</h1>
+      <form action="/create-new-user" method="post">        
+        <hr>
+        <label id="icon" for="email"><i class="fas fa-envelope"></i></label>
+        <input type="text" name="email" id="name" placeholder="Email" required/>
+        <label id="icon" for="name"><i class="fas fa-user"></i></label>
+        <input type="text" name="name" id="name" placeholder="Name" required/>
+        <label id="icon" for="address"><i class="fas fa-map"></i></label>
+        <input type="text" name="address" id="name" placeholder="Address" required/>
+        <hr>
+        <div class="gender">
+          <input type="radio" value="Nam" id="male" name="sex" checked/>
+          <label for="male" class="radio">Male</label>
+          <input type="radio" value="Nữ" id="female" name="sex" />
+          <label for="female" class="radio">Female</label>
+        </div>
+        <hr>
+        <div class="btn-block">
+          <p>By clicking Register, you agree on our <a href="https://www.w3docs.com/privacy-policy">Privacy Policy for W3Docs</a>.</p>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    
+  </body>
+</html>
